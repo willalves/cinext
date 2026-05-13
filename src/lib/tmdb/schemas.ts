@@ -37,6 +37,44 @@ export const movieDetailsSchema = movieSummarySchema
   })
   .omit({ genre_ids: true })
 
+export const castMemberSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  character: z.string(),
+  profile_path: z.string().nullable(),
+  order: z.number(),
+})
+
+export const crewMemberSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  job: z.string(),
+  department: z.string(),
+  profile_path: z.string().nullable(),
+})
+
+export const creditsSchema = z.object({
+  cast: z.array(castMemberSchema),
+  crew: z.array(crewMemberSchema),
+})
+
+export const videoSchema = z.object({
+  id: z.string(),
+  key: z.string(),
+  name: z.string(),
+  site: z.string(),
+  type: z.string(),
+  official: z.boolean(),
+})
+
+export const videosSchema = z.object({
+  id: z.number(),
+  results: z.array(videoSchema),
+})
+
 export type MovieSummary = z.infer<typeof movieSummarySchema>
 export type PaginatedMovies = z.infer<typeof paginatedMoviesSchema>
 export type MovieDetails = z.infer<typeof movieDetailsSchema>
+export type Credits = z.infer<typeof creditsSchema>
+export type CastMember = z.infer<typeof castMemberSchema>
+export type Video = z.infer<typeof videoSchema>
