@@ -7,7 +7,7 @@ import { ClearWatchlistButton } from '@/features/watchlist/components/clear-watc
 import { SearchSkeleton } from '@/features/movies/components/search-skeleton'
 
 export const metadata = {
-  title: 'Watchlist · CineScope',
+  title: 'Watchlist · Cinext',
 }
 
 export default async function WatchlistPage() {

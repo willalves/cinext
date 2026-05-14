@@ -10,7 +10,7 @@ type PageProps = {
 }
 
 export const metadata = {
-  title: 'Search · CineScope',
+  title: 'Search · Cinext',
 }
 
 export default async function SearchPage({ searchParams }: PageProps) {

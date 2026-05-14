@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   try {
     const movie = await getMovieDetails(movieId)
     return {
-      title: `${movie.title} | CineScope`,
-      description: movie.overview || movie.tagline || `${movie.title} on CineScope`,
+      title: `${movie.title} | Cinext`,
+      description: movie.overview || movie.tagline || `${movie.title} on Cinext`,
       openGraph: {
         title: movie.title,
         description: movie.overview,
@@ -96,7 +96,7 @@ export default async function MoviePage({ params }: PageProps) {
               <div className="text-muted-foreground flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
                 {movie.vote_average > 0 && (
                   <span className="flex items-center gap-1">
-                    <Star className="h-4 w-4 fill-yellow-400 stroke-yellow-400" />
+                    <Star className="size-4 fill-yellow-400 stroke-yellow-400" />
                     <span className="text-foreground font-medium">
                       {movie.vote_average.toFixed(1)}
                     </span>
@@ -121,7 +121,7 @@ export default async function MoviePage({ params }: PageProps) {
               <div className="flex flex-wrap gap-3 pt-2">
                 <Button asChild size="lg">
                   <Link href={`/movies/${movie.id}/trailer`} scroll={false}>
-                    <Play className="mr-1 h-4 w-4 fill-current" />
+                    <Play className="mr-1 size-4 fill-current" />
                     Play trailer
                   </Link>
                 </Button>
