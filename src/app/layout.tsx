@@ -5,6 +5,7 @@ import './globals.css'
 import { cn } from '@/lib/utils'
 import { SiteHeader } from '@/components/site-header'
 import { GeistSans } from 'geist/font/sans'
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
@@ -31,8 +32,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SiteHeader />
-          <main className="min-h-screen pb-16">{children}</main>
+          <NuqsAdapter>
+            <SiteHeader />
+            <main className="min-h-screen pb-16">{children}</main>
+          </NuqsAdapter>
         </ThemeProvider>
       </body>
     </html>
