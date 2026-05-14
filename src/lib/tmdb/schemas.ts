@@ -9,7 +9,7 @@ export const movieSummarySchema = z.object({
   release_date: z.string(),
   vote_average: z.number(),
   vote_count: z.number(),
-  genre_ids: z.array(z.number()),
+  genre_ids: z.array(z.number()).optional(),
 })
 
 export const paginatedMoviesSchema = z.object({

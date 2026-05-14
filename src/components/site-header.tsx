@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { ThemeToggle } from './theme-toggle'
+import { WatchlistLink } from '@/features/watchlist/components/watchlist-link'
+import { Search } from 'lucide-react'
 
 export function SiteHeader() {
   return (
@@ -9,11 +11,12 @@ export function SiteHeader() {
           Cinext
         </Link>
         <nav className="flex items-center gap-2">
+          <WatchlistLink />
           <Link
             href="/search"
-            className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+            className="text-muted-foreground hover:text-foreground pl-2 text-sm transition-colors"
           >
-            Search
+            <Search className="size-4" />
           </Link>
           <ThemeToggle />
         </nav>

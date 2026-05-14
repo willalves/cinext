@@ -8,6 +8,8 @@ import { getMovieDetails, getMovieCredits, getSimilarMovies } from '@/lib/tmdb/e
 import { getBackdropUrl, getPosterUrl } from '@/lib/tmdb/images'
 import { MovieRow } from '@/features/movies/components/movie-row'
 import { CastRow } from '@/features/movies/components/cast-row'
+import { isOnWatchlist } from '@/features/watchlist/storage'
+import { WatchlistButton } from '@/features/watchlist/components/watchlist-button'
 
 type PageProps = {
   params: Promise<{ id: string }>
@@ -52,6 +54,7 @@ export default async function MoviePage({ params }: PageProps) {
   const poster = getPosterUrl(movie.poster_path, 'w500')
   const year = movie.release_date ? movie.release_date.slice(0, 4) : ''
   const runtime = movie.runtime ? formatRuntime(movie.runtime) : null
+  const onWatchlist = await isOnWatchlist(movieId)
 
   return (
     <article>
@@ -122,9 +125,7 @@ export default async function MoviePage({ params }: PageProps) {
                     Play trailer
                   </Link>
                 </Button>
-                <Button variant="outline" size="lg">
-                  Add to watchlist
-                </Button>
+                <WatchlistButton movieId={movie.id} initialIsOnWatchlist={onWatchlist} />
               </div>
             </div>
           </div>

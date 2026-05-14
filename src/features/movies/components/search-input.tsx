@@ -21,7 +21,7 @@ export function SearchInput() {
 
   return (
     <div className="relative max-w-2xl">
-      <Search className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
+      <Search className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2" />
       <Input
         value={q}
         onChange={(e) => setQ(e.target.value || null)}
@@ -37,7 +37,7 @@ export function SearchInput() {
           onClick={() => setQ(null)}
           aria-label="Clear search"
         >
-          <X className="h-4 w-4" />
+          <X className="size-4" />
         </Button>
       )}
       {isPending && (
