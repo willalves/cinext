@@ -9,6 +9,7 @@ export async function WatchlistLink() {
   return (
     <Link
       href="/watchlist"
+      aria-label={`Watchlist${count > 0 ? ` (${count} ${count === 1 ? 'movie' : 'movies'})` : ''}`}
       className="text-muted-foreground hover:text-foreground relative flex items-center gap-1.5 text-sm transition-colors"
     >
       <Heart className="size-4" />
